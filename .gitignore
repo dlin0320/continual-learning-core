@@ -1,0 +1,6 @@
+# Pending items and state files
+retrospective/pending/
+retrospective/archive/
+update/staged/
+digest/logs/
+digest/state.yaml

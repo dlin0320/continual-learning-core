@@ -1,0 +1,21 @@
+{
+  "skills_repo": "~/Workspace/continual-learning",
+
+  "principles": {
+    "safety_boundaries": [
+      "Never evolve skills outside skills_repo"
+    ],
+    "quality_thresholds": {
+      "min_confidence_for_auto_update": 0.7,
+      "min_sessions_before_pattern_detection": 3
+    },
+    "governance": {
+      "major_version_always_requires_approval": true
+    }
+  },
+
+  "digest": {
+    "interval": "daily",
+    "notify": true
+  }
+}

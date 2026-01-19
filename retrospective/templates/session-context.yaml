@@ -1,0 +1,76 @@
+# Session Context Template
+
+Use this template to gather context before running a retrospective.
+
+## Instructions
+
+1. Copy this template
+2. Fill in each section based on the completed session
+3. Pass to retrospective for analysis
+
+---
+
+```yaml
+session_context:
+  # Identifiers
+  session_id: ""          # Unique ID or timestamp (e.g., "project-feature-20250106")
+  timestamp: ""           # ISO-8601 (e.g., "2025-01-06T14:30:00Z")
+
+  # User Feedback
+  user_feedback:
+    explicit:
+      rating:             # -1 (negative), 0 (neutral), 1 (positive)
+      comment: ""         # Any verbal feedback from user
+    implicit:
+      accepted_output:    # true/false - did user accept the result?
+      manual_corrections: # Number of times user corrected/edited output
+      follow_up_questions: # Number of clarifying questions asked
+
+  # Skills Used
+  # List all skills that were invoked during the session
+  used_skills:
+    - name: ""            # Skill name from frontmatter
+      path: ""            # Full path to skill (used for filtering by skills_repo)
+      version: ""         # Version if known (from git tag)
+      outcomes:
+        - step: 1
+          success:        # true/false
+          notes: ""       # What happened
+
+  # Task Information
+  task:
+    original_request: ""  # The user's initial request (verbatim or summarized)
+    domain_signals: []    # Tags: ["python", "debugging", "scylladb", etc.]
+
+  # Approach Taken
+  approach:
+    initial_plan: ""      # What was the first approach?
+    alternatives_considered: []  # Other approaches thought of
+    why_chosen: ""        # Why this approach over alternatives
+
+  # Outcome
+  outcome:
+    status: ""            # "success" | "partial_success" | "failure"
+    artifacts: []         # Files created, outputs produced
+    errors: []            # Errors encountered
+    capability_gaps: []   # Skills that would have helped (noted, not auto-proposed)
+```
+
+---
+
+## Quick Fill Guide
+
+### Rating Scale
+- `-1`: User frustrated, task failed, or significant rework needed
+- `0`: Task completed but with issues, user neutral
+- `1`: Task completed well, user satisfied
+
+### Status Definitions
+- `success`: Task completed as requested, user satisfied
+- `partial_success`: Core task done but with issues or missing elements
+- `failure`: Task not completed or completely wrong approach
+
+### Capability Gaps Examples
+- "A code formatting skill would have helped"
+- "Need a skill for database schema analysis"
+- "Missing integration with external API X"
